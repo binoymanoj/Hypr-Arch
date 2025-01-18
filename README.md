@@ -53,8 +53,8 @@ To replicate this setup, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/arch-hyprland-config.git
-   cd arch-hyprland-config
+   git clone https://github.com/binoymanoj/Hypr-Arch.git
+   cd Hypr-Arch/
    ```
 
 2. Make the installation script executable:
