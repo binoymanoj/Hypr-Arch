@@ -1,0 +1,32 @@
+#!/bin/bash
+# Directory for screenshots
+SCREENSHOT_DIR=$HOME/.cache/lockscreen
+mkdir -p $SCREENSHOT_DIR
+
+# Take a screenshot
+SCREENSHOT=$SCREENSHOT_DIR/screen_locked.png
+grim $SCREENSHOT
+
+# Add blur using magick
+magick $SCREENSHOT -blur 0x8 $SCREENSHOT
+
+# Lock screen with customization
+swaylock \
+    --image $SCREENSHOT \
+    --scaling fill \
+    --indicator-radius 100 \
+    --indicator-thickness 7 \
+    --ring-color 2E3440 \
+    --key-hl-color 88C0D0 \
+    --line-color 00000000 \
+    --inside-color 00000088 \
+    --separator-color 00000000 \
+    --text-color ECEFF4 \
+    --font "JetBrainsMono Nerd Font" \
+    --font-size 48 \
+    --inside-ver-color 00000088 \
+    --inside-wrong-color BF616A
+#
+# # Clean up
+rm $SCREENSHOT
+

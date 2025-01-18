@@ -1,0 +1,44 @@
+ignore-empty-password
+font=JetBrainsMono Nerd Font
+
+clock
+timestr=%I:%M:%S %p
+datestr=%a, %B %d
+
+# Colors
+color=11111b
+inside-color=11111bcc
+inside-clear-color=11111bcc
+inside-caps-lock-color=11111bcc
+inside-ver-color=11111bcc
+inside-wrong-color=11111bcc
+
+ring-color=313244
+ring-clear-color=cba6f7
+ring-caps-lock-color=f9e2af
+ring-ver-color=89b4fa
+ring-wrong-color=f38ba8
+
+text-color=cdd6f4
+text-clear-color=cba6f7
+text-caps-lock-color=f9e2af
+text-ver-color=89b4fa
+text-wrong-color=f38ba8
+
+key-hl-color=a6e3a1
+bs-hl-color=f38ba8
+caps-lock-key-hl-color=f9e2af
+caps-lock-bs-hl-color=f38ba8
+
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+separator-color=00000000
+
+scaling=fill
+indicator
+indicator-radius=100
+indicator-thickness=10
