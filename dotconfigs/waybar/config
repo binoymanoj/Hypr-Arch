@@ -74,6 +74,7 @@
     "tooltip-format": "󰍛 Used: {used:0.1f}GB/{total:0.1f}GB\n󰍛 Swap: {swapUsed:0.1f}GB/{swapTotal:0.1f}GB"
   },
   "battery": {
+    "interval": 1,
     "states": {
       "warning": 30,
       "critical": 15

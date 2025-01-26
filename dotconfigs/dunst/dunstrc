@@ -47,12 +47,12 @@
 [urgency_low]
     background = "#00000055"  # Very slight dark tint for readability
     frame_color = "#89b4fa"
-    timeout = 4
+    timeout = 3
 
 [urgency_normal]
     background = "#00000055"  # Very slight dark tint for readability
     frame_color = "#cba6f7"
-    timeout = 5
+    timeout = 3
 
 [urgency_critical]
     background = "#f38ba8aa"  # Semi-transparent red
