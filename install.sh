@@ -6,8 +6,8 @@ sudo pacman -Syu --noconfirm
 
 # Install required packages
 echo "Installing required packages..."
-sudo pacman -S --noconfirm hyprland ghostty waybar wofi dunst swaylock hyprpaper hypridle neovim nautilus 
-
+sudo pacman -S --noconfirm hyprland ghostty waybar wofi dunst swaylock hyprpaper hypridle neovim nautilus nautilus-file-roller nautilus-evince python3-nautilus NetworkManager-applet pavucontrol playerctl libnotify-tools grim wlsunset ImageMagick ttf-jetbrains-mono-nerd hyprland-qtutils
+ 
 # Create configuration directories if not already present
 echo "Creating configuration directories..."
 mkdir -p ~/.config/{hypr,waybar,wofi,dunst,ghostty,swaylock,nvim}
