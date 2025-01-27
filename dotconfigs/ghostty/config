@@ -1,3 +1,7 @@
+# Ghostty Configuration
+# Author: Binoy Manoj
+# GitHub: https://github.com/binoymanoj
+
 # Disable window decorations (top panel)
 window-decoration = false
 

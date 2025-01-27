@@ -1,3 +1,7 @@
+# Waybar Configuration
+# Author: Binoy Manoj
+# GitHub: https://github.com/binoymanoj
+
 {
   "layer": "top",
   "position": "top",

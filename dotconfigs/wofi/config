@@ -1,3 +1,7 @@
+# Wofi Configuration
+# Author: Binoy Manoj
+# GitHub: https://github.com/binoymanoj
+
 width=600
 height=400
 location=center

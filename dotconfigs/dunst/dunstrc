@@ -1,3 +1,7 @@
+# Dunst Configuration
+# Author: Binoy Manoj
+# GitHub: https://github.com/binoymanoj
+
 [global]
     font = "JetBrainsMono Nerd Font 11"
     
