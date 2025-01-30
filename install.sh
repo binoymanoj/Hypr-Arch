@@ -85,9 +85,9 @@ fi
 
 # Install required packages
 print_status "Installing required packages..."
-sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd \
+sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji  \
     nautilus hyprctl ghostty waybar wofi rofi dunst swaylock-effects \
-    hyprpaper hypridle neovim blueman network-manager-applet pavucontrol \
+    hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
     brightnessctl cliphist wl-clipboard zsh polkit-gnome &
 spinner $!
