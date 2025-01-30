@@ -1,7 +1,3 @@
-# Dunst Configuration
-# Author: Binoy Manoj
-# GitHub: https://github.com/binoymanoj
-
 [global]
     font = "JetBrainsMono Nerd Font 11"
     
@@ -19,7 +15,7 @@
     # Position and Size
     offset = 10x10
     width = 300
-    height = 100
+    height = (100, 300)
     gap_size = 8
     padding = 12
     horizontal_padding = 12
@@ -31,8 +27,12 @@
     min_icon_size = 24      # Reduced from 32
     
     # Behavior
-    timeout = 3
+    timeout = 5
     show_indicators = true
+
+    idle_threshold = 120    # update to 0, if you want to set the timeout for notifications
+    sticky_history = yes
+    show_age_threshold = 60
     
     # Progress Bar
     progress_bar = true
@@ -51,12 +51,12 @@
 [urgency_low]
     background = "#00000055"  # Very slight dark tint for readability
     frame_color = "#89b4fa"
-    timeout = 3
+    timeout = 5
 
 [urgency_normal]
     background = "#00000055"  # Very slight dark tint for readability
     frame_color = "#cba6f7"
-    timeout = 3
+    timeout = 5
 
 [urgency_critical]
     background = "#f38ba8aa"  # Semi-transparent red
