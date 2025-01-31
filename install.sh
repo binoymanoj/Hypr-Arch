@@ -89,7 +89,7 @@ sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts
     nautilus hyprctl ghostty waybar wofi rofi dunst swaylock-effects \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome &
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw &
 spinner $!
 
 # Installing AUR packages
@@ -149,6 +149,9 @@ if ! grep -q "XCURSOR_THEME" "$HYPR_CONF"; then
     echo "env = XCURSOR_SIZE,20" >> "$HYPR_CONF"
 fi
 
+# Setting up ufw (firewall)
+sudo ufw enable
+   
 # Setup wallpaper
 print_status "Setting up wallpaper..."
 mkdir -p ~/Pictures/Wallpapers/
