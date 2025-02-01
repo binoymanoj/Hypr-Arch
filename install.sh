@@ -86,7 +86,7 @@ fi
 # Install required packages
 print_status "Installing required packages..."
 sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji  \
-    nautilus hyprctl ghostty waybar wofi rofi dunst swaylock-effects \
+    nautilus hyprctl ghostty waybar wofi rofi dunst \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
     brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate &
@@ -94,7 +94,7 @@ spinner $!
 
 # Installing AUR packages
 print_status "Installing AUR packages..."
-yay -S --noconfirm brave bibata-cursor-theme zsh-completions nvm &
+yay -S --noconfirm brave bibata-cursor-theme swaylock-effects zsh-completions nvm &
 spinner $!
 
 # Setting up zsh shell
