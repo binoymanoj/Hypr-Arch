@@ -14,6 +14,7 @@
   ],
   "modules-right": [
     "custom/night-light",
+    "custom/caffeine",
     "bluetooth",
     "pulseaudio",
     "network",
@@ -60,6 +61,13 @@
     "on-click": "~/.config/waybar/scripts/night-light.sh toggle",
     "on-scroll-up": "~/.config/waybar/scripts/night-light.sh increase",
     "on-scroll-down": "~/.config/waybar/scripts/night-light.sh decrease",
+    "tooltip": true
+  },
+  "custom/caffeine": {
+    "exec": "~/.config/waybar/scripts/caffeine.sh status",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/caffeine.sh toggle",
     "tooltip": true
   },
   "cpu": {

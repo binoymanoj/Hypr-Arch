@@ -41,6 +41,7 @@ window#waybar {
 #cpu,
 #memory,
 #custom-night-light,
+#custom-caffeine,
 #network,
 #bluetooth,
 #pulseaudio,
@@ -161,4 +162,29 @@ tooltip label {
     color: #cdd6f4;
 }
 
+#custom-caffeine {
+    background-color: rgba(17, 17, 27, 0.6);
+    padding: 0 10px;
+    padding-right: 12px;
+    margin: 5px 0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    margin-right: 5px;
+    color: #f9e2af;
+}
 
+#custom-caffeine.off {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    margin-right: 0;
+}
+
+#custom-caffeine.off {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    opacity: 0;
+}

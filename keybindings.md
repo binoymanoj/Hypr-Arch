@@ -85,6 +85,9 @@
 ### Night Light
 - `Super + Alt + N`: Toggle night light
 
+### Caffeine
+- `Super + Alt + C`: Toggle Caffeine (when turned on system won't lock or suspend)
+
 ## Laptop Multimedia Keys
 - `XF86AudioRaiseVolume`: Increase volume
 - `XF86AudioLowerVolume`: Decrease volume

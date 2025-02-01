@@ -62,14 +62,6 @@ stop_wlsunset() {
     fi
 }
 
-# Start automatically if no arguments provided
-if [ $# -eq 0 ]; then
-    if ! is_running; then
-        start_wlsunset
-    fi
-    exit 0
-fi
-
 case "$1" in
     "toggle")
         if is_running; then
