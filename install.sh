@@ -89,7 +89,7 @@ sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts
     nautilus hyprctl ghostty waybar wofi rofi dunst swaylock-effects \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw &
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate &
 spinner $!
 
 # Installing AUR packages
