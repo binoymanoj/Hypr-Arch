@@ -89,12 +89,12 @@ sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts
     nautilus hyprctl ghostty waybar wofi rofi dunst \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate &
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate yazi gnome-system-monitor &
 spinner $!
 
 # Installing AUR packages
 print_status "Installing AUR packages..."
-yay -S --noconfirm brave bibata-cursor-theme swaylock-effects zsh-completions nvm &
+yay -S --noconfirm brave bibata-cursor-theme swaylock-effects zsh-completions nvm eog &
 spinner $!
 
 # Setting up zsh shell
