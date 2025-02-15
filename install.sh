@@ -151,6 +151,11 @@ fi
 
 # Setting up ufw (firewall)
 sudo ufw enable
+
+# Setting up TLP for (Power saving)
+sudo pacman -S tlp tlp-rdw
+sudo systemctl enable tlp
+sudo systemctl start tlp
    
 # Setup wallpaper
 print_status "Setting up wallpaper..."
