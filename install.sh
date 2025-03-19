@@ -55,22 +55,54 @@ notify() {
     fi
 }
 
+# Function to run command with sudo and spinner
+# This ensures the sudo password prompt doesn't interfere with spinner
+run_sudo_command() {
+    local command_description=$1
+    shift
+    
+    print_status "$command_description"
+    
+    # First authenticate with sudo to cache credentials
+    sudo -v
+    
+    # Then run the actual command with spinner
+    sudo "$@" &
+    spinner $!
+    
+    print_success "$command_description completed"
+}
+
+# Function to run regular command with spinner
+run_command() {
+    local command_description=$1
+    shift
+    
+    print_status "$command_description"
+    "$@" &
+    spinner $!
+    print_success "$command_description completed"
+}
+
 # Welcome message
 clear
 echo -e "${GREEN}=================================${NC}"
 echo -e "${GREEN}  Hyprland Installation Script   ${NC}"
 echo -e "${GREEN}=================================${NC}\n"
 
+# Pre-authenticate sudo to avoid password prompts during operations
+print_status "Please enter your password to proceed with installation"
+sudo -v
+
+# Keep sudo credentials fresh for the duration of the script
+(while true; do sudo -v; sleep 60; done) &
+SUDO_KEEP_ALIVE_PID=$!
+
 # Update system
-print_status "Updating system..."
-sudo pacman -Syu --noconfirm &
-spinner $!
-print_success "System updated"
+run_sudo_command "Updating system" pacman -Syu --noconfirm
 
 # Installing git
-print_status "Installing git and base-devel..."
-sudo pacman -S --needed base-devel git --noconfirm &
-spinner $!
+run_sudo_command "Installing git and base-devel" pacman -S --needed base-devel git --noconfirm
 
 # Installing yay
 print_status "Installing yay AUR helper..."
@@ -79,23 +111,18 @@ cd ~/Applications || exit
 if [ ! -d "yay" ]; then
     git clone https://aur.archlinux.org/yay.git
     cd yay || exit
-    makepkg -si --noconfirm &
-    spinner $!
+    run_command "Building yay" makepkg -si --noconfirm
 fi
 
 # Install required packages
-print_status "Installing required packages..."
-sudo pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji  \
+run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji \
     nautilus hyprctl ghostty waybar wofi rofi dunst \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate yazi gnome-system-monitor &
-spinner $!
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate yazi gnome-system-monitor
 
 # Installing AUR packages
-print_status "Installing AUR packages..."
-yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog &
-spinner $!
+run_command "Installing AUR packages" yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog
 
 # Setting up zsh shell
 print_status "Setting up zsh shell..."
@@ -103,8 +130,8 @@ chsh -s "$(which zsh)"
 
 # Configure bluetooth
 print_status "Configuring bluetooth..."
-sudo systemctl enable bluetooth 
-sudo systemctl start bluetooth
+run_sudo_command "Enabling bluetooth service" systemctl enable bluetooth 
+run_sudo_command "Starting bluetooth service" systemctl start bluetooth
 
 # Create configuration directories
 print_status "Creating configuration directories..."
@@ -122,8 +149,7 @@ cp -r dotconfigs/.bashrc ~/.bashrc
 cp -r dotconfigs/.zshrc ~/.zshrc
 
 # Configure cursor theme
-print_status "Configuring cursor theme..."
-sudo mkdir -p /usr/share/icons/default/
+run_sudo_command "Configuring cursor theme" mkdir -p /usr/share/icons/default/
 cat << EOF | sudo tee /usr/share/icons/default/index.theme > /dev/null
 [Icon Theme]
 Inherits=Bibata-Modern-Classic
@@ -150,12 +176,12 @@ if ! grep -q "XCURSOR_THEME" "$HYPR_CONF"; then
 fi
 
 # Setting up ufw (firewall)
-sudo ufw enable
+run_sudo_command "Enabling firewall" ufw enable
 
 # Setting up TLP for (Power saving)
-sudo pacman -S tlp tlp-rdw
-sudo systemctl enable tlp
-sudo systemctl start tlp
+run_sudo_command "Installing TLP" pacman -S tlp tlp-rdw --noconfirm
+run_sudo_command "Enabling TLP service" systemctl enable tlp
+run_sudo_command "Starting TLP service" systemctl start tlp
    
 # Setup wallpaper
 print_status "Setting up wallpaper..."
@@ -167,6 +193,9 @@ print_status "Restarting services..."
 pkill hyprpaper waybar || true
 hyprpaper &
 waybar &
+
+# Kill the sudo credential keeper
+kill $SUDO_KEEP_ALIVE_PID 2>/dev/null || true
 
 # Final notification
 notify "Installation Complete" "Please restart Hyprland for all changes to take effect"
