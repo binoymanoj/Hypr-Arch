@@ -94,7 +94,7 @@ spinner $!
 
 # Installing AUR packages
 print_status "Installing AUR packages..."
-yay -S --noconfirm brave bibata-cursor-theme swaylock-effects zsh-completions nvm eog &
+yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog &
 spinner $!
 
 # Setting up zsh shell
