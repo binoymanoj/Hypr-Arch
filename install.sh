@@ -118,7 +118,7 @@ fi
 run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji \
     nautilus hyprctl ghostty waybar wofi rofi dunst \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
-    playerctl libnotify-tools grim slurp wlsunset ImageMagick zoxide \
+    playerctl libnotify-tools grim slurp wlsunset imagemagick pipewire pipewire-pulse zoxide \
     brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate yazi gnome-system-monitor
 
 # Installing AUR packages
