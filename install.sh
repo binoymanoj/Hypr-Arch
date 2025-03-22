@@ -122,7 +122,7 @@ run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland f
     brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate yazi gnome-system-monitor
 
 # Installing AUR packages
-run_command "Installing AUR packages" yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog
+run_command "Installing AUR packages" yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog wofi-emoji
 
 # Setting up zsh shell
 print_status "Setting up zsh shell..."
