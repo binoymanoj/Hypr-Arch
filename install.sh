@@ -119,7 +119,7 @@ run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland f
     nautilus hyprctl ghostty waybar wofi rofi dunst \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset imagemagick pipewire pipewire-pulse zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate yazi gnome-system-monitor
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate fzf yazi gnome-system-monitor
 
 # Installing AUR packages
 run_command "Installing AUR packages" yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog wofi-emoji
