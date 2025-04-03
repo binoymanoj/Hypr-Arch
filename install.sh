@@ -116,7 +116,7 @@ fi
 
 # Install required packages
 run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji \
-    nautilus hyprctl ghostty waybar wofi rofi dunst \
+    nautilus hyprctl ghostty waybar rofi-wayland rofi-emoji dunst \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset imagemagick pipewire pipewire-pulse zoxide \
     brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate fzf yazi gnome-system-monitor
