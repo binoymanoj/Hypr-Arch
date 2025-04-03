@@ -135,7 +135,7 @@ run_sudo_command "Starting bluetooth service" systemctl start bluetooth
 
 # Create configuration directories
 print_status "Creating configuration directories..."
-mkdir -p ~/.config/{hypr,waybar,wofi,rofi,dunst,ghostty,swaylock,nvim}
+mkdir -p ~/.config/{hypr,waybar,wofi,rofi,dunst,fastfetch,nvim,ghostty,swaylock,tmux,yazi,nvim}
 
 # Copy configuration files
 print_status "Copying configuration files..."
@@ -147,6 +147,9 @@ done
 # Copy other config files
 cp -r dotconfigs/.bashrc ~/.bashrc
 cp -r dotconfigs/.zshrc ~/.zshrc
+
+# Symlink .zshrc from .config to home folder ~ 
+ln -s ~/.config/.zshrc ~/.zshrc
 
 # Configure cursor theme
 run_sudo_command "Configuring cursor theme" mkdir -p /usr/share/icons/default/

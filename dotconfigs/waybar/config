@@ -1,4 +1,3 @@
-
 {
   "layer": "top",
   "position": "top",
@@ -20,8 +19,8 @@
     "network",
     "cpu",
     "memory",
-    "battery",
     "tray",
+    "battery",
     "custom/power"
   ],
   "hyprland/workspaces": {

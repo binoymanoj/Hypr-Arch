@@ -22,3 +22,5 @@ drun-display_generic=false
 key_forward=Tab
 key_backward=ISO_Left_Tab
 layer=overlay
+key_down=ctrl-j
+key_up=ctrl-k

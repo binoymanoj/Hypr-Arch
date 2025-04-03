@@ -30,7 +30,7 @@
     timeout = 5
     show_indicators = true
 
-    idle_threshold = 120    # update to 0, if you want to set the timeout for notifications
+    idle_threshold = 0    #  120 for default configuration(lasts around 10secs), update to 0 if you want to set the timeout for notifications
     sticky_history = yes
     show_age_threshold = 60
     

@@ -1,0 +1,30 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrainsMono Nerd Font 12";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "  Apps";
+    display-run: "  Run";
+    display-window: "  Window";
+    display-Network: "  Network";
+    sidebar-mode: true;
+    
+    // Clear default keybindings
+    kb-remove-to-eol: "";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-row-up: "";
+    kb-row-down: "";
+    
+    // Set our custom keybindings
+    kb-row-down: "Control+j,Down";
+    kb-row-up: "Control+k,Up";
+    
+    // Enable icons
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+
+@theme "catppuccin"
