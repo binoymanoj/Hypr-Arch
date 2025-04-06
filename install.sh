@@ -197,11 +197,6 @@ pkill hyprpaper waybar || true
 hyprpaper &
 waybar &
 
-# Firmware update
-run_sudo_command "Update Firmware - Refresh" fwupdmgr refresh
-run_sudo_command "Update Firmware - Get Update" fwupdmgr get-updates
-run_sudo_command "Update Firmware - Update" fwupdmgr update
-
 # Kill the sudo credential keeper
 kill $SUDO_KEEP_ALIVE_PID 2>/dev/null || true
 
