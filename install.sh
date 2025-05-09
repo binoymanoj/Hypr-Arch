@@ -116,13 +116,17 @@ fi
 
 # Install required packages
 run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland fastfetch ttf-jetbrains-mono-nerd noto-fonts-emoji \
-    nautilus hyprctl ghostty waybar rofi-wayland rofi-emoji dunst \
+    nautilus hyprctl ghostty rofi-wayland rofi-emoji \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset imagemagick pipewire pipewire-pulse zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate fzf yazi gnome-system-monitor fwupd exfat-utils ntfs-3g
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate fzf yazi gnome-system-monitor fwupd exfat-utils ntfs-3g hyprpicker
+
+# if using waybar the following 2 packages needs to be installed
+# dunst  - replaced with hyprpanel installation
+# waybar - replaced waybar with ags-hyprpanel-git (hyprpanel)
 
 # Installing AUR packages
-run_command "Installing AUR packages" yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog wofi-emoji
+run_command "Installing AUR packages" yay -S --noconfirm brave-bin bibata-cursor-theme swaylock-effects zsh-completions nvm eog wofi-emoji ags-hyprpanel-git
 
 # Setting up zsh shell
 print_status "Setting up zsh shell..."
@@ -135,11 +139,11 @@ run_sudo_command "Starting bluetooth service" systemctl start bluetooth
 
 # Create configuration directories
 print_status "Creating configuration directories..."
-mkdir -p ~/.config/{hypr,waybar,wofi,rofi,dunst,fastfetch,nvim,ghostty,swaylock,tmux,yazi,nvim}
+mkdir -p ~/.config/{hypr,waybar,hyprpanel,wofi,rofi,dunst,fastfetch,nvim,ghostty,swaylock,tmux,yazi,nvim}
 
 # Copy configuration files
 print_status "Copying configuration files..."
-for dir in hypr waybar wofi rofi dunst swaylock ghostty; do
+for dir in hypr waybar hyprpanel wofi rofi dunst swaylock ghostty; do
     cp -r "dotconfigs/$dir/"* ~/.config/"$dir"/ 2>/dev/null || true
     show_progress "##########" $((($dir * 100) / 7))
 done
@@ -193,9 +197,13 @@ cp images/boy-coding-wallpaper.jpg ~/Pictures/Wallpapers/
 
 # Restart services
 print_status "Restarting services..."
-pkill hyprpaper waybar || true
+pkill hyprpaper hyprpanel || true
 hyprpaper &
-waybar &
+hyprpanel &
+# backup
+# pkill hyprpaper waybar || true
+# hyprpaper &
+# waybar &
 
 # Kill the sudo credential keeper
 kill $SUDO_KEEP_ALIVE_PID 2>/dev/null || true
