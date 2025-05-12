@@ -119,7 +119,9 @@ run_sudo_command "Installing required packages" pacman -S --noconfirm hyprland f
     nautilus hyprctl ghostty rofi-wayland rofi-emoji \
     hyprpaper hypridle neovim blueman bluez bluez-utils network-manager-applet pavucontrol \
     playerctl libnotify-tools grim slurp wlsunset imagemagick pipewire pipewire-pulse zoxide \
-    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate fzf yazi gnome-system-monitor fwupd exfat-utils ntfs-3g hyprpicker
+    brightnessctl cliphist wl-clipboard zsh polkit-gnome ufw plocate fzf yazi gnome-system-monitor fwupd exfat-utils ntfs-3g hyprpicker power-profiles-daemon
+
+# power-profiles-daemon - used by hyprpanel (instead of tlp)
 
 # if using waybar the following 2 packages needs to be installed
 # dunst  - replaced with hyprpanel installation
@@ -185,10 +187,10 @@ fi
 # Setting up ufw (firewall)
 run_sudo_command "Enabling firewall" ufw enable
 
-# Setting up TLP for (Power saving)
-run_sudo_command "Installing TLP" pacman -S tlp tlp-rdw --noconfirm
-run_sudo_command "Enabling TLP service" systemctl enable tlp
-run_sudo_command "Starting TLP service" systemctl start tlp
+# Setting up TLP for (Power saving) - replaced with power-profiles-daemon
+# run_sudo_command "Installing TLP" pacman -S tlp tlp-rdw --noconfirm
+# run_sudo_command "Enabling TLP service" systemctl enable tlp
+# run_sudo_command "Starting TLP service" systemctl start tlp
    
 # Setup wallpaper
 print_status "Setting up wallpaper..."

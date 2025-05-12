@@ -143,7 +143,7 @@ bindkey '^n' history-search-forward     # Search forwards in history using CTRL 
 # Additional key bindings for better completion
 bindkey '^[[Z' reverse-menu-complete  # Shift-Tab to reverse completion menu
 bindkey '^I' complete-word            # Tab to complete
-
+bindkey '^y' autosuggest-accept       # Ctrl+Y to accept suggestion
 
 ############################################
 ############## SHELL PACKAGES ##############
@@ -174,10 +174,19 @@ function zle-keymap-select {
     viins|main) echo -ne "\e[6 q" ;;  # Line cursor (insert mode)
   esac
 }
-# Apply cursor changes immediately on shell start
-echo -ne "\e[6 q"
-
 zle -N zle-keymap-select
+
+# Initialize cursor on line editor start
+function zle-line-init {
+    echo -ne "\e[6 q"  # Line cursor for insert mode
+}
+zle -N zle-line-init
+
+# Also force cursor update when prompt is shown
+function precmd() {
+    vcs_info
+    echo -ne "\e[6 q"  # Ensure line cursor when prompt appears
+}
 
 bindkey '^H' backward-kill-word
 
@@ -245,9 +254,11 @@ export EDITOR=nvim
 alias cd="z"             # replacing cd with z (zoxide) for jumping to location from history
 alias ff="fastfetch"     # ff for fastfetch
 alias vi="nvim"          # vi for neovim
+alias zta="zathura"      # zta for zathura PDF viewer
 
 # Git Aliases
 alias g='git'
+alias gf='git fetch'
 alias ga='git add'
 alias gaa='git add --all'
 alias gb='git branch'
